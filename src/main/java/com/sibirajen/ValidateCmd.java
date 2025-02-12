@@ -1,27 +1,31 @@
 package com.sibirajen;
 
 public class ValidateCmd {
-    public static void checkAddCmd(String[] cmds) {
-        if (cmds.length < 5) {
+    public static boolean checkAddCmd(String[] commands) {
+        if (commands.length < 5) {
             System.out.println("Usage: java ExpTracker add -d [argument] -a [argument]");
-            return;
+            return false;
         }
 
-        if (!cmds[1].equals("-d") || !cmds[3].equals("-a")) {
+        if (!commands[1].equals("-d") || !commands[3].equals("-a")) {
             System.out.println("Usage: java ExpTracker add -d [argument] -a [argument]");
-            return;
+            return false;
         }
+
+        return true;
     }
 
-    public static void checkDelCmd(String[] cmds) {
-        if(cmds.length < 3) {
+    public static boolean checkDelCmd(String[] commands) {
+        if(commands.length < 3) {
             System.out.println("Usage: java ExpTracker delete -i [argument]");
-            return;
+            return false;
         }
 
-        if(!cmds[1].equals("-i")) {
+        if(!commands[1].equals("-i")) {
             System.out.println("Usage: java ExpTracker delete -i [argument]");
-            return;
+            return false;
         }
+
+        return true;
     }
 }

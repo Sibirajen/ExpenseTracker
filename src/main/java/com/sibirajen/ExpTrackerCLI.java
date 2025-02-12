@@ -14,10 +14,12 @@ public class ExpTrackerCLI
         }
 
         switch((args[0])) {
-            case "add":
-                ValidateCmd.checkAddCmd(args);
+            case "add": {
+                if (!ValidateCmd.checkAddCmd(args)) return;
                 // add function
+                System.out.println("Success");
                 break;
+            }
             default:
                 System.out.println("Usage: java ExpTracker <command>");
         }
