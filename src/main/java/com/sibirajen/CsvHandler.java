@@ -38,4 +38,8 @@ public class CsvHandler {
             Files.createFile(FILE_PATH);
         }
     }
+
+    public static boolean isFileExists(){
+        return Files.exists(FILE_PATH);
+    }
 }
