@@ -1,12 +1,15 @@
 package com.sibirajen;
 
-import java.time.LocalDate;
+
+import com.opencsv.bean.CsvBindByPosition;
 
 public class Expense {
+    @CsvBindByPosition(position = 0)
     private int id;
-    private LocalDate date;
-    private String description;
-    private double amount;
+    @CsvBindByPosition(position = 1)
+    private String name;
+    @CsvBindByPosition(position = 2)
+    private double Amount;
 
     public int getId() {
         return id;
@@ -16,27 +19,19 @@ public class Expense {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double getAmount() {
-        return amount;
+        return Amount;
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        Amount = amount;
     }
 }

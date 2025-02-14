@@ -16,20 +16,20 @@ import java.util.List;
 public class CsvHandler {
     private static final Path FILE_PATH = Path.of("File.csv");
 
-    public static void writeCsv(List<Bean> bean) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
+    public static void writeCsv(List<Expense> expense) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         createFile();
         BufferedWriter writer = Files.newBufferedWriter(FILE_PATH);
-        StatefulBeanToCsv<Bean> beanWriter = new StatefulBeanToCsvBuilder<Bean>(writer)
+        StatefulBeanToCsv<Expense> beanWriter = new StatefulBeanToCsvBuilder<Expense>(writer)
                 .withApplyQuotesToAll(false)
                 .build();
-        beanWriter.write(bean);
+        beanWriter.write(expense);
     }
 
-    public static List<Bean> readCsv() throws IOException {
+    public static List<Expense> readCsv() throws IOException {
         createFile();
         BufferedReader reader = Files.newBufferedReader(FILE_PATH);
-        return new CsvToBeanBuilder<Bean>(reader)
-                .withType(Bean.class)
+        return new CsvToBeanBuilder<Expense>(reader)
+                .withType(Expense.class)
                 .build().parse();
     }
 
