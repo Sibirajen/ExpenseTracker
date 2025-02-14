@@ -12,7 +12,7 @@ public class ExpTrackerCLI
             System.out.println("Usage: java ExpTracker <command>");
             return;
         }
-
+        ExpenseManager manager = new ExpenseManager();
         switch((args[0])) {
             case "add": {
                 if (!ValidateCmd.checkAddCmd(args)) return;
@@ -23,5 +23,6 @@ public class ExpTrackerCLI
             default:
                 System.out.println("Usage: java ExpTracker <command>");
         }
+        manager.saveExpense();
     }
 }
