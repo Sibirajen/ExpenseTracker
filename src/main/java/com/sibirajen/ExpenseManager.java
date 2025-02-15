@@ -22,7 +22,7 @@ public class ExpenseManager {
         try {
             return CsvHandler.readCsv();
         } catch (IOException e) {
-            logger.log(Level.WARNING, "Error reading CSV file" + e.getClass().getSimpleName());
+            logger.log(Level.SEVERE, "Error reading CSV file" + e.getClass().getSimpleName());
             return new ArrayList<>();
         }
     }
