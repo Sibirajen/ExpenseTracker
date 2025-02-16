@@ -58,4 +58,9 @@ public class Expense {
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
+
+    @Override
+    public String toString() {
+        return String.format("# %-3d %-10s %-12s ₹%.2f\n", id, createdAt, name, amount);
+    }
 }
