@@ -58,9 +58,9 @@ public class ExpenseManager {
             System.out.println("No data to print");
             return;
         }
-        System.out.println("# ID  Date       Description  Amount");
-        for (Expense e : expenseList) {
-            System.out.printf("# %-3d %-10s %-12s ₹%.2f\n", e.getId(), e.getCreatedAt(), e.getName(), e.getAmount());
+        Expense.printHeader();
+        for (Expense expense : expenseList) {
+            System.out.print(expense);
         }
     }
 }
