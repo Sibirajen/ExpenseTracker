@@ -59,6 +59,14 @@ public class Expense {
         this.createdAt = createdAt;
     }
 
+    public static void printHeader(){
+        String ID = "Id";
+        String DATE = "Date";
+        String NAME = "Description";
+        String AMOUNT = "Amount";
+        System.out.printf("# %-3s %-10s %-12s %s\n", ID, DATE, NAME, AMOUNT);
+    }
+
     @Override
     public String toString() {
         return String.format("# %-3d %-10s %-12s ₹%.2f\n", id, createdAt, name, amount);
