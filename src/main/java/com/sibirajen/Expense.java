@@ -9,7 +9,13 @@ public class Expense {
     @CsvBindByPosition(position = 1)
     private String name;
     @CsvBindByPosition(position = 2)
-    private double Amount;
+    private double amount;
+
+    public Expense(int id, String name, double amount) {
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+    }
 
     public int getId() {
         return id;
@@ -28,10 +34,10 @@ public class Expense {
     }
 
     public double getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(double amount) {
-        Amount = amount;
+        this.amount = amount;
     }
 }
