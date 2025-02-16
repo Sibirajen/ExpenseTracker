@@ -17,20 +17,23 @@ public class CsvHandler {
     private static final Path FILE_PATH = Path.of("File.csv");
 
     public static void writeCsv(List<Expense> expense) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
-        createFile();
+        StatefulBeanToCsv<Expense> beanWriter;
         BufferedWriter writer = Files.newBufferedWriter(FILE_PATH);
-        StatefulBeanToCsv<Expense> beanWriter = new StatefulBeanToCsvBuilder<Expense>(writer)
+        beanWriter = new StatefulBeanToCsvBuilder<Expense>(writer)
                 .withApplyQuotesToAll(false)
                 .build();
         beanWriter.write(expense);
+        writer.close();
     }
 
     public static List<Expense> readCsv() throws IOException {
         createFile();
         BufferedReader reader = Files.newBufferedReader(FILE_PATH);
-        return new CsvToBeanBuilder<Expense>(reader)
+        List<Expense> expenseList =  new CsvToBeanBuilder<Expense>(reader)
                 .withType(Expense.class)
                 .build().parse();
+        reader.close();
+        return expenseList;
     }
 
     public static void createFile() throws IOException {
