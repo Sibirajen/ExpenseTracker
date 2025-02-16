@@ -52,4 +52,15 @@ public class ExpenseManager {
             logger.log(Level.SEVERE, "Error occurred while writing the CSV file: " + e.getClass().getSimpleName());
         }
     }
+
+    public void list() {
+        if(expenseList.isEmpty()){
+            System.out.println("No data to print");
+            return;
+        }
+        System.out.println("# ID  Date       Description  Amount");
+        for (Expense e : expenseList) {
+            System.out.printf("# %-3d %-10s %-12s ₹%.2f\n", e.getId(), e.getCreatedAt(), e.getName(), e.getAmount());
+        }
+    }
 }

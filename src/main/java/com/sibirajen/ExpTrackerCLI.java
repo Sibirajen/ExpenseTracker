@@ -31,6 +31,9 @@ public class ExpTrackerCLI
                 manager.addExpense(name, amount);
                 break;
             }
+            case "list":
+                manager.list();
+                break;
             default:
                 System.out.println("Usage: java ExpTracker <command>");
         }
