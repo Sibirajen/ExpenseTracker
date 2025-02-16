@@ -2,6 +2,9 @@ package com.sibirajen;
 
 
 import com.opencsv.bean.CsvBindByPosition;
+import com.opencsv.bean.CsvDate;
+
+import java.time.LocalDate;
 
 public class Expense {
     @CsvBindByPosition(position = 0)
@@ -10,6 +13,9 @@ public class Expense {
     private String name;
     @CsvBindByPosition(position = 2)
     private double amount;
+    @CsvBindByPosition(position = 3)
+    @CsvDate("dd.MM.yyyy")
+    private LocalDate createdAt;
 
     public Expense() {
     }
@@ -18,6 +24,7 @@ public class Expense {
         this.id = id;
         this.name = name;
         this.amount = amount;
+        this.createdAt = LocalDate.now();
     }
 
     public int getId() {
@@ -42,5 +49,13 @@ public class Expense {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 }
