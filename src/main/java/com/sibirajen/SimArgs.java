@@ -7,6 +7,8 @@ public class SimArgs {
                 {"add"},
                 {"add","Lunch","20"},
                 {"add","--d","Lunch","--a","20"},
+                {"add","-d","Lunch","-a","abc"},
+                {"add","-d","Lunch","-a","-20"},
                 {"add","-d","Lunch","-a","20"}
         };
 
