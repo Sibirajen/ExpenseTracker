@@ -11,6 +11,9 @@ public class Expense {
     @CsvBindByPosition(position = 2)
     private double amount;
 
+    public Expense() {
+    }
+
     public Expense(int id, String name, double amount) {
         this.id = id;
         this.name = name;
