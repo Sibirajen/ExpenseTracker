@@ -67,4 +67,16 @@ public class ExpenseManager {
             System.out.print(expense);
         }
     }
+
+    public void deleteExpense(int id) {
+        for (int i = 0; i < expenseList.size(); i++) {
+            Expense expense = expenseList.get(i);
+            if (expense.getId() == id) {
+                expenseList.remove(i);
+                System.out.println("# Expense deleted successfully");
+                return;
+            }
+        }
+        System.out.println("Id not found");
+    }
 }
