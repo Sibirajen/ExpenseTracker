@@ -28,4 +28,18 @@ public class ValidateCmd {
 
         return true;
     }
+
+    public static boolean checkUpdateCmd(String[] commands) {
+        if(commands.length < 3) {
+            System.out.println("Usage: java ExpTracker update -i [argument]");
+            return false;
+        }
+
+        if(!commands[1].equals("-i")) {
+            System.out.println("Usage: java ExpTracker update -i [argument]");
+            return false;
+        }
+
+        return true;
+    }
 }
