@@ -8,6 +8,7 @@ public class ExpTrackerCLI
 {
     public static void main( String[] args )
     {
+        args = removeEmptyArgs(args);
         if (args.length < 1) {
             System.out.println("====================================");
             System.out.println("Welcome to Trackr - Your Personal Tracker App!");
@@ -77,6 +78,26 @@ public class ExpTrackerCLI
                 break;
         }
         manager.saveExpense();
+    }
+
+    public static String[] removeEmptyArgs(String[] args) {
+        int count = 0;
+        for (String arg : args) {
+            if (arg != null && !arg.trim().isEmpty()) {
+                count++;
+            }
+        }
+
+        String[] cleanedArgs = new String[count];
+        int index = 0;
+
+        for (String arg : args) {
+            if (arg != null && !arg.trim().isEmpty()) {
+                cleanedArgs[index++] = arg;
+            }
+        }
+
+        return cleanedArgs;
     }
 
     private static void printHelp() {
