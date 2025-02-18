@@ -43,6 +43,22 @@ public class ExpTrackerCLI
                 manager.list();
                 break;
             }
+            case "summary":{
+                if(args.length == 1){
+                    manager.summary();
+                    return;
+                }
+                if(!ValidateCmd.checkSummaryCmd(args)) return;
+                int month;
+                try{
+                    month = Integer.parseInt(args[2]);
+                } catch (NumberFormatException e){
+                    System.out.println("Invalid number. Please enter a valid month.");
+                    return;
+                }
+                manager.summary(month);
+                break;
+            }
             default:
                 System.out.println("Usage: java ExpTracker <command>");
         }
