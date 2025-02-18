@@ -27,7 +27,8 @@ public class SimArgs {
                 {"summary","2"},
                 {"summary","--m","2"},
                 {"summary","-m","abc"},
-                {"summary","-m","2"}
+                {"summary","-m","2"},
+                {"help"}
         };
 
         for(String[] command: commands){
