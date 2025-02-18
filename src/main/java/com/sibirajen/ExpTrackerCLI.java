@@ -21,11 +21,7 @@ public class ExpTrackerCLI
                 try {
                     amount = Double.parseDouble(args[4]);
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid amount format. Please enter a valid number.");
-                    return;
-                }
-                if (amount < 0) {
-                    System.out.println("Amount cannot be negative.");
+                    System.out.println("Invalid amount. Please enter a valid Number.");
                     return;
                 }
                 manager.addExpense(name, amount);
@@ -34,6 +30,11 @@ public class ExpTrackerCLI
             case "list":
                 manager.list();
                 break;
+            }
+            case "list":{
+                manager.list();
+                break;
+            }
             default:
                 System.out.println("Usage: java ExpTracker <command>");
         }
