@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <build.dir>C:\Users\sibir\Documents\Programs\Intellij Java\expenseTracker\target</build.dir>
   </properties>
 
   <dependencies>
@@ -28,6 +29,7 @@
     </dependency>
   </dependencies>
     <build>
+      <directory>${build.dir}</directory>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
