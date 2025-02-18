@@ -8,8 +8,13 @@ public class ExpTrackerCLI
 {
     public static void main( String[] args )
     {
-        if(args.length < 1) {
-            System.out.println("Usage: java ExpTracker <command>");
+        if (args.length < 1) {
+            System.out.println("====================================");
+            System.out.println("Welcome to Trackr - Your Personal Tracker App!");
+            System.out.println("====================================");
+            System.out.println("Usage: trackr <command>");
+            System.out.println("Get started by using a command like 'trackr <command>' to track your activities.");
+            System.out.println("For help, use 'trackr help'.");
             return;
         }
         ExpenseManager manager = new ExpenseManager();
@@ -61,23 +66,23 @@ public class ExpTrackerCLI
             }
             case "help":{
                 if(args.length != 1){
-                    System.out.println("Usage: java ExpTracker help");
+                    System.out.println("Usage: trackr help");
                     return;
                 }
                 printHelp();
                 break;
             }
             default:
-                System.out.println("Usage: java ExpTracker <command>");
+                System.out.println("Usage: trackr <command>");
                 break;
         }
         manager.saveExpense();
     }
 
     private static void printHelp() {
-        System.out.println("\nExpense Tracker CLI - Help");
+        System.out.println("\nExpense Tracker - Help");
         System.out.println("============================");
-        System.out.println("Usage: java ExpTracker <command> [options]");
+        System.out.println("Usage: trackr <command> [options]");
         System.out.println("\nAvailable Commands:");
         System.out.println("  add -d <description> -a <amount>    Add a new expense");
         System.out.println("  delete -i <expense_id>             Delete an expense by ID");
