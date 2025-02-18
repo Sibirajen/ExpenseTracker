@@ -59,9 +59,31 @@ public class ExpTrackerCLI
                 manager.summary(month);
                 break;
             }
+            case "help":{
+                if(args.length != 1){
+                    System.out.println("Usage: java ExpTracker help");
+                    return;
+                }
+                printHelp();
+                break;
+            }
             default:
                 System.out.println("Usage: java ExpTracker <command>");
+                break;
         }
         manager.saveExpense();
+    }
+
+    private static void printHelp() {
+        System.out.println("\nExpense Tracker CLI - Help");
+        System.out.println("============================");
+        System.out.println("Usage: java ExpTracker <command> [options]");
+        System.out.println("\nAvailable Commands:");
+        System.out.println("  add -d <description> -a <amount>    Add a new expense");
+        System.out.println("  delete -i <expense_id>             Delete an expense by ID");
+        System.out.println("  list                               List all expenses");
+        System.out.println("  summary                            Show total expenses");
+        System.out.println("  summary -m <month>                 Show expenses for a specific month");
+        System.out.println("  help                               Show this help message");
     }
 }
