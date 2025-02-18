@@ -90,7 +90,7 @@ public class ExpenseManager {
         for (Expense expense : expenseList) {
             total += expense.getAmount();
         }
-        System.out.printf("# Total expenses: ₹%.2f\n", total);
+        System.out.printf("# Total expenses: Rs.%.2f\n", total);
     }
 
     public void summary(int month) {
@@ -105,6 +105,6 @@ public class ExpenseManager {
             }
         }
         String monthStr = new DateFormatSymbols().getMonths()[month - 1];
-        System.out.printf("# Total expenses for %s : ₹%.2f\n", monthStr, total);
+        System.out.printf("# Total expenses for %s : Rs.%.2f\n", monthStr, total);
     }
 }
