@@ -6,6 +6,7 @@ public class SimArgs {
                 {},
                 {"abc"},
                 {"list"},
+                {"summary"},
                 {"add"},
                 {"add","Lunch","20"},
                 {"add","--d","Lunch","--a","20"},
@@ -21,7 +22,12 @@ public class SimArgs {
                 {"delete","--i","100"},
                 {"delete","-i","100"},
                 {"delete","-i","100"},
-                {"list"}
+                {"list"},
+                {"summary"},
+                {"summary","2"},
+                {"summary","--m","2"},
+                {"summary","-m","abc"},
+                {"summary","-m","2"}
         };
 
         for(String[] command: commands){
