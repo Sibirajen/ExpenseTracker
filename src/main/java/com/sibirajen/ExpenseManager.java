@@ -4,6 +4,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.io.IOException;
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -78,5 +79,32 @@ public class ExpenseManager {
             }
         }
         System.out.println("Id not found");
+    }
+
+    public void summary() {
+        if(expenseList.isEmpty()){
+            System.out.println("No data to print");
+            return;
+        }
+        double total = 0;
+        for (Expense expense : expenseList) {
+            total += expense.getAmount();
+        }
+        System.out.printf("# Total expenses: ₹%.2f\n", total);
+    }
+
+    public void summary(int month) {
+        if(month < 1 || month > 12){
+            System.out.println("Enter a valid month");
+            return;
+        }
+        double total = 0;
+        for (Expense expense : expenseList) {
+            if(expense.getCreatedAt().getMonthValue() == month){
+                total += expense.getAmount();
+            }
+        }
+        String monthStr = new DateFormatSymbols().getMonths()[month - 1];
+        System.out.printf("# Total expenses for %s : ₹%.2f\n", monthStr, total);
     }
 }
