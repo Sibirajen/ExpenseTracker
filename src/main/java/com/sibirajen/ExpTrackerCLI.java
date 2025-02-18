@@ -27,8 +27,16 @@ public class ExpTrackerCLI
                 manager.addExpense(name, amount);
                 break;
             }
-            case "list":
-                manager.list();
+            case "delete":{
+                if(!ValidateCmd.checkDelCmd(args)) return;
+                int id;
+                try{
+                    id = Integer.parseInt(args[2]);
+                } catch (NumberFormatException e){
+                    System.out.println("Invalid number. Please enter a valid Id.");
+                    return;
+                }
+                manager.deleteExpense(id);
                 break;
             }
             case "list":{
