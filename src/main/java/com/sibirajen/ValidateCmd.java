@@ -42,4 +42,18 @@ public class ValidateCmd {
 
         return true;
     }
+
+    public static boolean checkSummaryCmd(String[] commands) {
+        if(commands.length < 3) {
+            System.out.println("Usage: java ExpTracker summary -m [argument]");
+            return false;
+        }
+
+        if(!commands[1].equals("-m")) {
+            System.out.println("Usage: java ExpTracker summary -m [argument]");
+            return false;
+        }
+
+        return true;
+    }
 }
