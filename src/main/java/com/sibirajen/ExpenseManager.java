@@ -21,10 +21,14 @@ public class ExpenseManager {
     }
 
     public void addExpense(String name, double amount){
+        if (amount < 0) {
+            System.out.println("Amount cannot be negative.");
+            return;
+        }
         int id = ++uniqueId;
         Expense expense = new Expense(id, name, amount);
         expenseList.add(expense);
-        System.out.println("Expense added successfully (ID: " + id + " )");
+        System.out.println("# Expense added successfully (ID: " + id + " )");
     }
 
     private int getUniqueId(){
