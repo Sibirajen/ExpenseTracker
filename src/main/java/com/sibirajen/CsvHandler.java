@@ -14,7 +14,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class CsvHandler {
-    private static final Path FILE_PATH = Path.of("C:/Users/sibir/Documents/Project/projects/Expense Tracker/File.csv");
+    private static final Path FILE_PATH = Path.of("C:/Users/"+ System.getProperty("user.name") +"/Downloads/trackr.csv");
 
     public static void writeCsv(List<Expense> expense) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         StatefulBeanToCsv<Expense> beanWriter;
